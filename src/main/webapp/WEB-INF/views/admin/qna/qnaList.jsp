@@ -39,13 +39,13 @@
 		<div class="row">  <!-- 페이지의 시작 -->
 			<div class="col" style="font-size:120%; font-weight:bold;">
 				<c:if test="${paging.prev}" >
-					<a href="adminMemberList?page=${paging.beginPage-1}">◀</a>&nbsp;
+					<a href="adminQnaList?page=${paging.beginPage-1}">◀</a>&nbsp;
 				</c:if>
 				
 				
 				<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
 					<c:if test="${index!=paging.page}">
-						<a href="adminMemberList?page=${index}">${index}</a>&nbsp;
+						<a href="adminQnaList?page=${index}">${index}</a>&nbsp;
 					</c:if>
 					<c:if test="${index==paging.page}">
 						<span style="color:red">${index}&nbsp;</span>
@@ -54,7 +54,7 @@
 								
 				
 				<c:if test="${paging.next}" >
-					<a href="adminMemberList?page=${paging.endPage+1}">▶</a>&nbsp;
+					<a href="adminQnaList?page=${paging.endPage+1}">▶</a>&nbsp;
 				</c:if>
 			</div>
 		</div><!-- 페이지의 끝 -->
