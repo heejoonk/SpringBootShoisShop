@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.sp14.dao.IQnaDao">
+
+    <select id="getQnaList" resultType="com.himedia.sp14.dto.QnaVO" >
+        select * from qna order by qseq desc limit #{displayRow} offset #{startNum}
+    </select>
+
+    <select id="getAllCount" resultType="_int">
+        select count(*) from qna;
+    </select>
+
+    <select id="getQna"  resultType="com.himedia.sp14.dto.QnaVO">
+        select * from qna where qseq=#{param1}
+    </select>
+
+
+    <insert id="insertQna" parameterType="com.himedia.sp14.dto.QnaVO">
+        insert into qna( userid, subject, content, secret, pass )
+        values( #{userid}, #{subject}, #{content}, #{secret}, #{pass})
+    </insert>
+
+</mapper>

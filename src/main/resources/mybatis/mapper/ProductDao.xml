@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.sp14.dao.IProductDao">
+
+    <select id="selectNewList" resultType="com.himedia.sp14.dto.ProductVO">
+        select * from new_pro_view
+    </select>
+
+    <select id="selectBestList" resultType="com.himedia.sp14.dto.ProductVO">
+        select * from best_pro_view
+    </select>
+
+    <select id="selectCategory" resultType="com.himedia.sp14.dto.ProductVO" >
+        select * from product where category=#{param1}
+    </select>
+
+    <select id="getProduct" resultType="com.himedia.sp14.dto.ProductVO">
+        select * from product where pseq=#{param1}
+    </select>
+
+</mapper>

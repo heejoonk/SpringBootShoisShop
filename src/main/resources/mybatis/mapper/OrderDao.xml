@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.sp14.dao.IOrderDao">
+
+    <select id="getCart" resultType="com.himedia.sp14.dto.CartVO">
+        select * from cart_view where cseq=#{param1}
+    </select>
+
+    <insert id="insertOrders" parameterType="com.himedia.sp14.dto.OrderVO" >
+        insert into orders( userid, zip_num, address1, address2, address3)
+        values( #{userid}, #{zip_num}, #{address1}, #{address2}, #{address3} )
+    </insert>
+
+    <select id="lookupMaxOseq" resultType="_int">
+        select max(oseq) from orders where userid=#{param1}
+    </select>
+
+    <insert id="insertOrderDetail">
+        insert into order_detail( oseq, pseq, quantity ) values( #{param1}, #{param2.pseq}, #{param2.quantity})
+    </insert>
+
+    <select id="orderListByOseq" >
+        select * from order_view where oseq=#{param1}
+    </select>
+
+    <insert id="insertOrderDetailOne">
+        insert into order_detail( oseq, pseq, quantity ) values( #{param1}, #{param2}, #{param3})
+    </insert>
+
+    <select id="getOseqListIng" resultType="int" >
+        select distinct oseq from order_view where userid=#{param1} and ( result=1 or result=2 or result=3 ) order by oseq desc
+    </select>
+
+    <select id="getOseqListAll" resultType="int">
+        select distinct oseq from order_view where userid=#{param1} order by oseq desc
+    </select>
+
+    <update id="updateResult" >
+        update order_detail set result = 4 where odseq=#{param1}
+    </update>
+
+    <update id="updateMember" parameterType="com.himedia.sp14.dto.MemberVO">
+        update member set pwd=#{pwd}, name=#{name}, phone=#{phone}, email=#{email},
+        zip_num=#{zip_num}, address1=#{address1}, address2=#{address2}, address3=#{address3}
+        where userid=#{userid}
+    </update>
+
+
+    <delete id="deleteMember">
+        delete from member where userid=#{param1}
+    </delete>
+
+
+
+</mapper>

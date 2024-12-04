@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.sp14.dao.ICartDao">
+
+    <select id="selectCart" resultType="com.himedia.sp14.dto.CartVO">
+        select * from cart_view where userid=#{param1}
+    </select>
+
+    <insert id="insertCart" parameterType="com.himedia.sp14.dto.CartVO">
+        insert into cart(pseq, quantity, userid) values( #{pseq},#{quantity},#{userid})
+    </insert>
+
+    <delete id="deleteCart" >
+        delete from cart where cseq=#{param1}
+    </delete>
+
+</mapper>

@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="/admin/css/admin.css">
+<script src="/admin/script/admin.js"></script>
+
+</head>
+<body>
+	
+	<article style="width:600px;margin:100px auto;">
+		<form	method="post" action="adminLogin" name="loginForm">
+
+			<h2>Admin LogIn</h2>
+			<div class="field">
+				<label>Admin ID</label><input name="adminid" type="text" value="${dto.adminid}" />
+			</div>
+			<div class="field">
+				<label>Password</label><input name="pwd" type="password" >
+			</div>
+			<div class="btn">
+			   	<input type="submit" value="LOGIN" >
+			</div>
+			<div style="font-size:80%; font-weight:bold">${message} </div>
+		</form>
+	</article>
+	
+</body>
+</html>
