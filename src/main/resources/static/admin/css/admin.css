@@ -6,8 +6,7 @@
 a{ text-decoration: none; }
 
 article{
-	border:10px solid dimgray;
-	padding:10px;
+
 	margin:2px;
 	width:100%;
 	display: flex;
@@ -16,8 +15,8 @@ article{
 
 article form{
 	flex:1;
-	/*border:2px solid red;
-	margin:2px;*/
+	border:10px solid silver;
+	padding:10px;
 	display: flex;
 	flex-direction: column;
 }
