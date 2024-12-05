@@ -6,8 +6,8 @@
 a{ text-decoration: none; }
 
 article{
-	/*border:2px solid dimgray;
-	margin:2px;*/
+	border:2px solid dimgray;
+	margin:2px;
 	width:100%;
 	display: flex;
 	
