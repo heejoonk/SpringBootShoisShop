@@ -264,4 +264,10 @@ public class AdminController {
         return "redirect:/adminQnaDetail?qseq=" + qseq;
     }
 
+    @GetMapping("/adminLogout")
+    public String adminLogout( HttpSession session ) {
+        session.removeAttribute("adminUser");
+        return "redirect:/admin";
+    }
+
 }
